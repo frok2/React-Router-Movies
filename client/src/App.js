@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
+import Movie from './Movies/Movie';
 
 export default function App () {
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
@@ -27,10 +28,12 @@ export default function App () {
     getMovies();
   }, []);
 
+  
+
   const addToSavedList = id => {
     // This is stretch. Prevent the same movie from being "saved" more than once
   };
-console.log(movieList.length)
+
  if (movieList.length > 0)
    {
   return (
@@ -40,6 +43,10 @@ console.log(movieList.length)
       <Switch>
         <Route exact path='/'>
           <MovieList movies={movieList}/>
+        </Route>
+
+        <Route path='/Movies/:id'>
+          <Movie />
         </Route>
       </Switch>
     </div>
